@@ -1,0 +1,32 @@
+{
+  "name": "blog-graphql",
+  "version": "1.0.0",
+  "description": "Simple backend for a blog application using graphql",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon src/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/darwinbatres/blog-graphql.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/darwinbatres/blog-graphql/issues"
+  },
+  "homepage": "https://github.com/darwinbatres/blog-graphql#readme",
+  "devDependencies": {
+    "eslint": "^6.7.2",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-plugin-import": "^2.19.1",
+    "nodemon": "^2.0.1"
+  },
+  "dependencies": {
+    "apollo-server": "^2.9.13",
+    "dotenv": "^8.2.0",
+    "graphql": "^14.5.8",
+    "mongoose": "^5.8.0"
+  }
+}
