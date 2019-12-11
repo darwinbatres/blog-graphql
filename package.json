@@ -2,7 +2,7 @@
   "name": "blog-graphql",
   "version": "1.0.0",
   "description": "Simple backend for a blog application using graphql",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "dev": "nodemon src/server.js"
   },
