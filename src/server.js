@@ -3,16 +3,13 @@ const mongoose = require("mongoose");
 
 require("dotenv").config();
 
-const typeDefs = require("../graphql/typeDefs");
-const userTypeDefs = require("../graphql/userTypeDefs");
-
-const resolvers = require("../graphql/resolvers");
+const schema = require("../graphql");
 
 const { PORT, MONGODB_STR } = require("../config");
 
+// when using schema, this overrides typedefs and resolvers
 const server = new ApolloServer({
-  typeDefs: [typeDefs, userTypeDefs],
-  resolvers
+  schema
 });
 
 mongoose
