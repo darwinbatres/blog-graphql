@@ -14,7 +14,13 @@ Simple backend for a blog application using graphql
 
 #### Features
 
-- Implemented a way to import/add schemas for a given features dynamically, take a look at `index.js` inside `/graphql` folder.
+- Implemented a way to import/add schemas for a given features dynamically, take a look at `index.js` inside `/graphql` folder; this way we can have all the logic for resolvers, mutations, query, etc., inside the same file
+
+## Installation
+
+- `git clone` this repo
+- `npm install` all dependencies
+- `make sure you configure` `.env` properties before launching it
 
 ### .Env
 
