@@ -2,6 +2,8 @@ const { gql } = require("apollo-server");
 
 const Post = require("../../models/Post");
 
+const checkAuth = require("../../utils/checkAuth");
+
 module.exports = {
   typeDefs: gql`
     type Post {
@@ -15,7 +17,7 @@ module.exports = {
       getPost(postId: ID!): Post
     }
     type Mutation {
-      createPost(body: String!, username: String!): Post!
+      createPost(body: String!): Post!
       deletePost(postId: String): String!
     }
   `,
@@ -23,7 +25,8 @@ module.exports = {
     Query: {
       async getPosts() {
         try {
-          const posts = await Post.find();
+          // return all results from latest to newest
+          const posts = await Post.find().sort({ createdAt: -1 });
 
           const newPosts = posts.map(post => ({
             id: post.id,
@@ -39,10 +42,12 @@ module.exports = {
       }
     },
     Mutation: {
-      async createPost(_, { body, username }) {
+      async createPost(_, { body }, context) {
+        const user = checkAuth(context);
+
         const newPost = await Post({
           body,
-          username,
+          username: user.username,
           createdAt: new Date().toISOString()
         }).save();
         return {

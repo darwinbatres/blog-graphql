@@ -9,7 +9,8 @@ const { PORT, MONGODB_STR } = require("../config");
 
 // when using schema, this overrides typedefs and resolvers
 const server = new ApolloServer({
-  schema
+  schema,
+  context: ({ req }) => ({ req })
 });
 
 mongoose
