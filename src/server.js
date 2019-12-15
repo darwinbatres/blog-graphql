@@ -4,7 +4,7 @@ const mergeAllSchemas = require("merge-gql-schemas");
 
 require("dotenv").config();
 
-const schema = mergeAllSchemas();
+const schema = mergeAllSchemas("../graphql/schemas");
 
 const { PORT, MONGODB_STR } = require("../config");
 
