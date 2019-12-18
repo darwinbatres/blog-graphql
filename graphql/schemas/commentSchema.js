@@ -1,5 +1,6 @@
 const { gql } = require("apollo-server");
 
+// define the type(s) you need to export
 const CommentType = `
   type Comment {
     Id: ID!
@@ -25,5 +26,6 @@ module.exports = {
       }
     }
   },
+  // export types you intent to reuse in other schemas
   CommentType
 };
