@@ -8,13 +8,15 @@ Simple backend for a blog application using graphql
 - apollo-server
 - mongodb
 - mongoose
-- prettier (built-in in vscode)
+- prettier
 - eslint
 - for a more detailed list, check `package.json`
 
 #### Features
 
-- Implemented a way to import/add schemas for a given features dynamically, take a look at `index.js` inside `/graphql` folder; this way we can have all the logic for resolvers, mutations, query, etc., inside the same file
+1 Implemented a way to import/add schemas dynamically, make sure to keep all schemas inside one same folder, similar to `graphql/schemas` and that you estructure your exports just like in the examples provided.
+
+1. Note that we can also share Types accross different schemas, check the following schemas: `comment and post`
 
 ## Installation
 
