@@ -1,6 +1,6 @@
 const { ApolloServer } = require("apollo-server");
 const mongoose = require("mongoose");
-const mergeAllSchemas = require("merge-gql-schemas");
+const { mergeAllSchemas } = require("merge-gql-schemas");
 
 require("dotenv").config();
 

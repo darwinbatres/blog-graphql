@@ -30,7 +30,7 @@
     "graphql": "^14.5.8",
     "graphql-tools": "^4.0.6",
     "jsonwebtoken": "^8.5.1",
-    "merge-gql-schemas": "0.0.40",
+    "merge-gql-schemas": "^1.0.0",
     "mongoose": "^5.8.0"
   }
 }
