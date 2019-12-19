@@ -18,6 +18,8 @@ Simple backend for a blog application using graphql
 
 1. Note that we can also share Types accross different schemas, check the following schemas: `comment and post`
 
+1. Added [new library](https://www.npmjs.com/package/merge-models) to automatically import all models and have them passed using context to ApolloServer, check an example from resolvers found in `graphql/schemas/*`
+
 ## Installation
 
 - `git clone` this repo

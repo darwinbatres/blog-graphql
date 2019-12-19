@@ -2,8 +2,6 @@ const { gql, UserInputError } = require("apollo-server");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 
-const User = require("../../models/User");
-
 const {
   validateRegisterInput,
   validateLoginInput
@@ -63,7 +61,7 @@ module.exports = {
         }
       },
       Mutation: {
-        async register(_, args) {
+        async register(_, args, { models }) {
           const {
             username,
             password,
@@ -86,7 +84,7 @@ module.exports = {
           }
 
           // validate user does not already exist
-          const existingUser = await User.findOne({ username, email });
+          const existingUser = await models.User.findOne({ username, email });
 
           if (existingUser) {
             throw new UserInputError("username/email is already taken", {
@@ -99,7 +97,7 @@ module.exports = {
 
           const hashPassword = await bcrypt.hash(password, 12);
 
-          const newUser = new User({
+          const newUser = new models.User({
             email,
             username,
             password: hashPassword,
@@ -118,7 +116,8 @@ module.exports = {
             createdAt: newUserCreated.createdAt
           };
         },
-        async login(_, { username, password }) {
+        async login(_, { username, password }, context) {
+          const { models } = context;
           const { errors, valid } = validateLoginInput(username, password);
 
           if (!valid) {
@@ -127,7 +126,7 @@ module.exports = {
             });
           }
 
-          const user = await User.findOne({ username });
+          const user = await models.User.findOne({ username });
 
           if (!user) {
             errors.general = "User not found";

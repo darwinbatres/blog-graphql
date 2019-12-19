@@ -31,6 +31,7 @@
     "graphql-tools": "^4.0.6",
     "jsonwebtoken": "^8.5.1",
     "merge-gql-schemas": "^1.0.0",
+    "merge-models": "0.0.1",
     "mongoose": "^5.8.0"
   }
 }
